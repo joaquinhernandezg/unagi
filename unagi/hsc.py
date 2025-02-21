@@ -622,7 +622,8 @@ class Hsc():
         url = os.path.join(self.archive.cat_url, 'submit')
 
         if ('dr3' in self.dr or 'pdr3' in self.dr) and use_citus:
-            release = self.dr + '-citus'
+            release = self.dr #+ '-citus' #do not use citus, does not work
+            sql = sql.replace("filter01", "band as filter01").replace("patch_area", "skymap.areacube")
         else:
             release = self.dr
 
